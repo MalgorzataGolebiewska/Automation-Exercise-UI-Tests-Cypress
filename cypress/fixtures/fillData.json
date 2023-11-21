@@ -1,0 +1,16 @@
+{
+    "password": "Test123",
+    "birthday": "10",
+    "month": "7",
+    "year": "2007",
+    "firstName": "Tester",
+    "lastName": "Testowy",
+    "company": "Oasis Springs",
+    "firstAddress": "Newcrest",
+    "secondAddress": "Forgotten Hollow",
+    "country": "Canada",
+    "state": "Evergreen Harbor",
+    "city": "Batuu",
+    "zipcode": "12-123",
+    "mobileNumber": "123456789"
+}
