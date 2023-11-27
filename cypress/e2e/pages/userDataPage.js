@@ -1,5 +1,5 @@
 
-class FillUserData
+class NewUserData
 {
     enterAccountTxt=":nth-child(1) > b";
     genderRadio="#id_gender2";
@@ -138,4 +138,4 @@ class FillUserData
     }
 }
 
-export default FillUserData;
+export default NewUserData;

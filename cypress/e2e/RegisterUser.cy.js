@@ -1,5 +1,6 @@
 import FillUserData from "../PageObject/FillUserData";
 import UserData from "../PageObject/UserData"
+import newUserData from "./pages/register_page";
 
 describe('RegisterUser', ()=>
 {
@@ -12,7 +13,7 @@ describe('RegisterUser', ()=>
 
         cy.fixture('userdata').then((data) =>
         {
-            const login=new UserData();
+            const login =new UserData();
             login.verifyNewUserInfo();
             login.setUserName(data.username)
             login.setEmail(data.email)
@@ -22,7 +23,7 @@ describe('RegisterUser', ()=>
         cy.fixture('fillData').then((data) =>
         {
 
-            const fill=new FillUserData();
+            const fill =new NewUserData();
             fill.verifyEnterAccountText();
             fill.checkGenderRadio();
             fill.setPassword(data.password)
