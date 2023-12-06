@@ -5,6 +5,12 @@ class homePage {
         loginButton: () => cy.get(".shop-menu > .nav > :nth-child(4) > a")
     }
 
+    visitHomePage(){
+        
+        cy.visit('/');
+        cy.wait(3000)
+    }
+
     clickOnLoginButton() {
 
         this.elements.loginButton().click()

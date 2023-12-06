@@ -1,30 +1,28 @@
-import homePage from "../pages/homePage";
+import homePage from "../pages/homePage"
+import loggedUserPage from "../pages/loggedUserPage";
 import loginPage from "../pages/loginPage";
 import newUserDataPage from "../pages/newUserDataPage";
 import createdAccountPage from "../pages/createdAccountPage";
-import loggedUserPage from "../pages/loggedUserPage";
 import deleteAccountPage from "../pages/deleteAccountPage";
 
 
-describe('RegisterUserTest', () => {
+describe('Login User With Correct Data Test Case', () => {
 
-    it('Should register new user and delete account', () => {
-        cy.visit('/')
-
-        cy.wait(3000);
+    it('Should login with correct email and password, and delete account', () =>{
+        
+        homePage.visitHomePage();
         homePage.elements.centerText().should('have.text', 'Features Items');
         homePage.clickOnLoginButton();
-        loginPage.elements.newUserText().should('have.text', 'New User Signup!');
         loginPage.createAccount();
-        newUserDataPage.elements.accountInformationText().should('have.text', 'Enter Account Information');
         newUserDataPage.fillNewUserData();
-        createdAccountPage.elements.accountMessage().should('have.text', 'Account Created!');
         createdAccountPage.clickContinue();
+        loggedUserPage.logoutUser();
+        loginPage.elements.loginToAccountText().should('have.text','Login to your account');
+        loginPage.correctloginToAccount();
+        loginPage.clickLoginButton();
         loggedUserPage.elements.loggedUserName().should('have.text', ' Logged in as Tester');
         loggedUserPage.deleteAccount();
         deleteAccountPage.elements.accountDeletedMessage().should('have.text', 'Account Deleted!');
-        deleteAccountPage.continueButton();
-        homePage.elements.centerText().should('have.text', 'Features Items');
-
     })
+
 })

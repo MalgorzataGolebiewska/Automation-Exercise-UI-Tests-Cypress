@@ -1,5 +1,5 @@
 
-class newUserPage {
+class newUserDataPage {
     
     elements = {
         accountInformationText: () => cy.get(':nth-child(1) > b')
@@ -132,7 +132,7 @@ class newUserPage {
     fillNewUserData() {
         cy.fixture('fillData').then((data) => {
 
-            const user = new newUserPage();
+            const user = new newUserDataPage();
             user.checkGenderRadio();
             user.setPassword(data.password)
             user.setBirthDay(data.birthday)
@@ -155,5 +155,5 @@ class newUserPage {
     }
 }
 
-export default new newUserPage();
+export default new newUserDataPage();
 require('cypress-xpath')
