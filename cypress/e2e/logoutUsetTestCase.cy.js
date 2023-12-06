@@ -5,6 +5,11 @@ import newUserDataPage from "../pages/newUserDataPage";
 import createdAccountPage from "../pages/createdAccountPage";
 
 describe('Logout user', () => {
+
+    after(() =>{
+        cy.deleteUser();
+    })
+
     it('Should logout user to login page', () => {
 
         homePage.visitHomePage();
@@ -20,10 +25,6 @@ describe('Logout user', () => {
         loggedUserPage.elements.loggedUserName().should('have.text', ' Logged in as Tester');
         loggedUserPage.logoutUser();
         loginPage.elements.loginToAccountText().should('have.text','Login to your account');
-        loginPage.correctloginToAccount();
-        loginPage.clickLoginButton();
-        loggedUserPage.deleteAccount();
         
-
     })
 })

@@ -64,5 +64,17 @@ Cypress.Commands.overwriteQuery(
       let contains0 = contains.bind(this)    // this line fixes the error
   
       return contains0(filter, text, userOptions)
-    }
-  )
+    })
+
+    Cypress.Commands.add("deleteUser", () => 
+    {
+      cy.visit("https://automationexercise.com/login")
+      cy.get('[data-qa="login-email"]').type('test@testit.li')
+      cy.get('[data-qa="login-password"]').type('Test123')
+      cy.get('[data-qa="login-button"]').click()
+      cy.wait(3000)
+      cy.get('.shop-menu > .nav > :nth-child(5) > a').click()
+      cy.wait(3000)
+      cy.get('b').should('have.text','Account Deleted!')
+    })
+
