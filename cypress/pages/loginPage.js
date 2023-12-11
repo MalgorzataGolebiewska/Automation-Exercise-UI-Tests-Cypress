@@ -3,7 +3,8 @@ class loginPage {
     elements = {
         newUserText: () => cy.get('.signup-form > h2'),
         loginToAccountText: () => cy.get('.login-form > h2'),
-        incorrectLoginMessage : () => cy.get('.login-form > form > p')
+        incorrectLoginMessage : () => cy.get('.login-form > form > p'),
+        emailExistMessage: () => cy.get('.signup-form > form > p')
     }
 
     userNameInput = "[data-qa='signup-name']"

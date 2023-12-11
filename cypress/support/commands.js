@@ -28,6 +28,8 @@
 
 ///<reference types="cypress-xpath" />
 
+import { should } from "chai";
+
 Cypress.Commands.add('getIframe',(iframe)=>{
     return cy.get(iframe)
             .its('0.contentDocument.body')
@@ -76,5 +78,28 @@ Cypress.Commands.overwriteQuery(
       cy.get('.shop-menu > .nav > :nth-child(5) > a').click()
       cy.wait(3000)
       cy.get('b').should('have.text','Account Deleted!')
+    })
+
+    Cypress.Commands.add("createUser", () =>
+    {
+      cy.visit("https://automationexercise.com/login")
+      cy.get('[data-qa="signup-name"]').type('Tester')
+      cy.get('[data-qa="signup-email"]').type('test@testit.li')
+      cy.get('[data-qa="signup-button"]').click()
+      cy.wait(3000)
+      cy.get('[data-qa="password"]').type('Test123')
+      cy.get('[data-qa="first_name"]').type('Tester')
+      cy.get('[data-qa="last_name"]').type('Testowy')
+      cy.get('[data-qa="address"]').type('Newcrest')
+      cy.get('#country').select('Canada', { forced: true }).should('have.value', 'Canada')
+      cy.get('[data-qa="state"]').type('Evergreen Harbor')
+      cy.wait(3000)
+      cy.get('[data-qa="city"]').type('Batuu')
+      cy.get('[data-qa="zipcode"]').type('12-123')
+      cy.get('[data-qa="mobile_number"]').type('123456789')
+      cy.get('[data-qa="create-account"]').click()
+      cy.get('[data-qa="continue-button"]').click()
+      cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
+      cy.get('.signup-form > h2').should('have.text','New User Signup!')
     })
 
