@@ -9,7 +9,6 @@ describe('Verify All Products and product detail page Test Case', () =>{
         allProductsPage.elements.productsHeader().should('have.text','All Products');
         allProductsPage.elements.products().should('satisfy', Cypress.dom.isVisible);
         allProductsPage.clickFirstProduct();
-        allProductsPage.verifyProductsDetail().should('satisfy', Cypress.dom.isVisible);
-
+        allProductsPage.verifyProductsDetail();
     })
 })

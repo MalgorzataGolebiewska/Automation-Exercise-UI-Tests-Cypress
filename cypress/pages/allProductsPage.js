@@ -1,3 +1,5 @@
+import { should } from 'chai'
+
 class allProductsPage {
 
     elements = {
@@ -7,51 +9,36 @@ class allProductsPage {
         firstProduct: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
     }
 
-    productName=".product-information > h2"
-    category=".product-information > :nth-child(3)"
-    price=":nth-child(5) > span"
-    availability=".product-information > :nth-child(6)"
-    condition=".product-information > :nth-child(7)"
-    brand=".product-information > :nth-child(8)"
+    productName = ".product-information > h2"
+    category = ".product-information > :nth-child(3)"
+    price = ":nth-child(5) > span"
+    availability = ".product-information > :nth-child(6)"
+    condition = ".product-information > :nth-child(7)"
+    brand = ".product-information > :nth-child(8)"
 
-    clickFirstProduct(){
+    clickFirstProduct() {
         this.elements.firstProduct().click()
     }
-
-    checkProductName(productName){
-        cy.get(this.productName).should('have.text',productName)
-    }
-
-    checkCategory(category){
-        cy.get(this.category).should('have.text',category)
-    }
-
-    checkPrice(price){
-        cy.get(this.price).should('have.text',price)
-    }
-
-    checkAvailability(availability){
-        cy.get(this.availability).should('have.text',availability)
-    }
-
-    checkCondition(condition){
-        cy.get(this.condition).should('have.text',condition)
-    }
-
-    checkBrand(brand){
-        cy.get(this.brand).should('have.text',brand)
-    }
-
-    verifyProductsDetail(){
-        cy.fixture('products').then((data) => {
-            const prod = new allProductsPage();
-            prod.checkProductName(data.productName);
-            prod.checkCategory(data.category);
-            prod.checkPrice(data.price);
-            prod.checkAvailability(data.availability);
-            prod.checkCondition(data.condition);
-            prod.checkBrand(data.brand)
-        })
+    
+    verifyProductsDetail() {
+        cy.get(this.productName).invoke('text').then((text) => {
+            expect(text.trim()).equal('Blue Top')
+        });
+        cy.get(this.category).invoke('text').then((text) => {
+            expect(text.trim()).equal('Category: Women > Tops')
+        });
+        cy.get(this.price).invoke('text').then((text) => {
+            expect(text.trim()).equal('Rs. 500')
+        });
+        cy.get(this.availability).invoke('text').then((text) => {
+            expect(text.trim()).equal('Availability: In Stock')
+        });
+        cy.get(this.condition).invoke('text').then((text) => {
+            expect(text.trim()).equal('Condition: New')
+        });
+        cy.get(this.brand).invoke('text').then((text) => {
+            expect(text.trim()).equal('Brand: Polo')
+        });
     }
 }
 export default new allProductsPage();
