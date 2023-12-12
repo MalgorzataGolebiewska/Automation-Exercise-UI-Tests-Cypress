@@ -10,7 +10,6 @@ describe('RegisterUserTest', () => {
 
     it('Should register new user and delete account', () => {
         cy.visit('/')
-
         cy.wait(3000);
         homePage.elements.centerText().should('have.text', 'Features Items');
         homePage.clickOnLoginButton();
@@ -25,6 +24,5 @@ describe('RegisterUserTest', () => {
         deleteAccountPage.elements.accountDeletedMessage().should('have.text', 'Account Deleted!');
         deleteAccountPage.continueButton();
         homePage.elements.centerText().should('have.text', 'Features Items');
-
     })
 })

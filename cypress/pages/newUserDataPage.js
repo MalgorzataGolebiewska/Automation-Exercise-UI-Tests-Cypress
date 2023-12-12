@@ -1,6 +1,6 @@
 
 class newUserDataPage {
-    
+
     elements = {
         accountInformationText: () => cy.get(':nth-child(1) > b')
     }
@@ -22,7 +22,7 @@ class newUserDataPage {
     stateInput = "[data-qa='state']";
     cityInput = "[data-qa='city']";
     zipcodeInput = "[data-qa='zipcode']";
-    monileNumberInput = "[data-qa='mobile_number']";
+    mobileNumberInput = "[data-qa='mobile_number']";
     createAccountButton = "[data-qa='create-account']";
 
     verifyEnterAccountText() {
@@ -120,7 +120,7 @@ class newUserDataPage {
     }
 
     setMobileNumber(mobileNumber) {
-        cy.get(this.monileNumberInput)
+        cy.get(this.mobileNumberInput)
             .type(mobileNumber);
     }
 

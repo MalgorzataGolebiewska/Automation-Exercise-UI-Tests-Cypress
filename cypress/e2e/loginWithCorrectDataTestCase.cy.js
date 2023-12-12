@@ -8,8 +8,7 @@ import deleteAccountPage from "../pages/deleteAccountPage";
 
 describe('Login User With Correct Data Test Case', () => {
 
-    it('Should login with correct email and password, and delete account', () =>{
-        
+    it('Should login with correct email and password, and delete account', () => {
         homePage.visitHomePage();
         homePage.elements.centerText().should('have.text', 'Features Items');
         homePage.clickOnLoginButton();
@@ -17,12 +16,11 @@ describe('Login User With Correct Data Test Case', () => {
         newUserDataPage.fillNewUserData();
         createdAccountPage.clickContinue();
         loggedUserPage.logoutUser();
-        loginPage.elements.loginToAccountText().should('have.text','Login to your account');
+        loginPage.elements.loginToAccountText().should('have.text', 'Login to your account');
         loginPage.correctloginToAccount();
         loginPage.clickLoginButton();
         loggedUserPage.elements.loggedUserName().should('have.text', ' Logged in as Tester');
         loggedUserPage.deleteAccount();
         deleteAccountPage.elements.accountDeletedMessage().should('have.text', 'Account Deleted!');
     })
-
 })
