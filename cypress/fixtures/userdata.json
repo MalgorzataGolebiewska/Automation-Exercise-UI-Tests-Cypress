@@ -1,5 +1,6 @@
 {
     "username": "Tester",
     "email": "test@testit.li",
-    "password": "Test123"
+    "password": "Test123",
+    "subject": "Testing"
 }
