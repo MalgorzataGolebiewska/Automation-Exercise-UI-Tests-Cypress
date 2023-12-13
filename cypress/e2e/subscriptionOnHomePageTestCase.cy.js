@@ -1,8 +1,8 @@
 import homePage from "../pages/homePage";
 
-describe('Verify Test Case Page', () => {
+describe('Subscription on home page Test Case', () => {
 
-    it('Should be navigated to test case page', () => {
+    it('Should get subscription in home page', () => {
         homePage.visitHomePage();
         homePage.elements.centerText().should('have.text', 'Features Items');
         homePage.scrollDown();
