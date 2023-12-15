@@ -9,6 +9,12 @@ class productsPage {
         firstProduct: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
         searchButton: () => cy.get('#submit_search'),
         searchedProductsHeader: () => cy.get('.title'),
+        firstProduct: () => cy.get('.features_items > :nth-child(3) > .product-image-wrapper > .single-products > .productinfo'),
+        secondProduct: () => cy.get(':nth-child(4) > .product-image-wrapper > .single-products > .productinfo'),
+        firstAddToCartButton: () =>cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="1"]'),
+        secondAddToCartButton:() =>cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="2"]'),
+        continueShoppingButton: () => cy.get('.modal-footer > .btn'),
+        viewCartButton: () => cy.get('u'),
     }
 
     productName = ".product-information > h2"
@@ -66,6 +72,24 @@ class productsPage {
             const result = new productsPage();
             result.productNameResult(data.searchProduct)
         })
+    }
+    
+    addFirstProduct() {
+        this.elements.firstProduct().trigger('mouseover')
+        this.elements.firstAddToCartButton().click({force: true})
+    }
+
+    addSecondProduct() {
+        this.elements.secondProduct().trigger('mouseover')
+        this.elements.secondAddToCartButton().click({force: true})
+    }
+
+    continueShopping(){
+        this.elements.continueShoppingButton().click()
+    }
+
+    viewCart() {
+        this.elements.viewCartButton().click()
     }
 }
 export default new productsPage();
