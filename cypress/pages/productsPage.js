@@ -15,6 +15,7 @@ class productsPage {
         secondAddToCartButton: () => cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="2"]'),
         continueShoppingButton: () => cy.get('.modal-footer > .btn'),
         viewCartButton: () => cy.get('u'),
+
     }
 
     productName = ".product-information > h2"

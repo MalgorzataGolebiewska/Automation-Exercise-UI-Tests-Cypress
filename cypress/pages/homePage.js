@@ -9,7 +9,8 @@ class homePage {
         subscriptionText: () => cy.get('.single-widget > h2'),
         subscriptionButton: () => cy.get('#subscribe'),
         subscriptionMessage: () => cy.get('#success-subscribe > div'),
-        cartButton: () => cy.get('.shop-menu > .nav > :nth-child(3) > a')
+        cartButton: () => cy.get('.shop-menu > .nav > :nth-child(3) > a'),
+        viewProductButton: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
     }
 
     subscriptionInput = "#susbscribe_email"
@@ -55,6 +56,10 @@ class homePage {
 
     clickOnCartButton(){
         this.elements.cartButton().click()
+    }
+
+    clickOnViewProduct(){
+        this.elements.viewProductButton().click()
     }
 }
 
