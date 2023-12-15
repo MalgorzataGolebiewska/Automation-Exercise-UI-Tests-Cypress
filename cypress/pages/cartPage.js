@@ -1,6 +1,6 @@
 class cartPage {
 
-    elements={
+    elements = {
         subscriptionText: () => cy.get('h2'),
         subscribeButton: () => cy.get('#subscribe'),
         subscriptionMessage: () => cy.get('#success-subscribe > div'),
@@ -13,8 +13,8 @@ class cartPage {
         firstTotalTD: () => cy.get('#product-1 > .cart_total > .cart_total_price'),
         secondTotalTD: () => cy.get('#product-2 > .cart_total > .cart_total_price')
     }
- 
-    subscriptionInput="#susbscribe_email"
+
+    subscriptionInput = "#susbscribe_email"
 
     subscriptionEmail(email) {
         cy.get(this.subscriptionInput).type(email)

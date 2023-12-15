@@ -11,8 +11,8 @@ class productsPage {
         searchedProductsHeader: () => cy.get('.title'),
         firstProduct: () => cy.get('.features_items > :nth-child(3) > .product-image-wrapper > .single-products > .productinfo'),
         secondProduct: () => cy.get(':nth-child(4) > .product-image-wrapper > .single-products > .productinfo'),
-        firstAddToCartButton: () =>cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="1"]'),
-        secondAddToCartButton:() =>cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="2"]'),
+        firstAddToCartButton: () => cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="1"]'),
+        secondAddToCartButton: () => cy.xpath('//div[@class="overlay-content"]/a[@data-product-id="2"]'),
         continueShoppingButton: () => cy.get('.modal-footer > .btn'),
         viewCartButton: () => cy.get('u'),
     }
@@ -73,18 +73,18 @@ class productsPage {
             result.productNameResult(data.searchProduct)
         })
     }
-    
+
     addFirstProduct() {
         this.elements.firstProduct().trigger('mouseover')
-        this.elements.firstAddToCartButton().click({force: true})
+        this.elements.firstAddToCartButton().click({ force: true })
     }
 
     addSecondProduct() {
         this.elements.secondProduct().trigger('mouseover')
-        this.elements.secondAddToCartButton().click({force: true})
+        this.elements.secondAddToCartButton().click({ force: true })
     }
 
-    continueShopping(){
+    continueShopping() {
         this.elements.continueShoppingButton().click()
     }
 
