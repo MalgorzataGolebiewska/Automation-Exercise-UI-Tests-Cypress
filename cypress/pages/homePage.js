@@ -11,6 +11,8 @@ class homePage {
         subscriptionMessage: () => cy.get('#success-subscribe > div'),
         cartButton: () => cy.get('.shop-menu > .nav > :nth-child(3) > a'),
         viewProductButton: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
+        blueTopToCartButton: () => cy.get('.features_items > :nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn'),
+        continueShoppingButton: () => cy.get('.modal-footer > .btn'),
     }
 
     subscriptionInput = "#susbscribe_email"
@@ -60,6 +62,14 @@ class homePage {
 
     clickOnViewProduct(){
         this.elements.viewProductButton().click()
+    }
+
+    clickOnBlueTopCartButton(){
+        this.elements.blueTopToCartButton().click()
+    }
+
+    clickOnContinueShopping(){
+        this.elements.continueShoppingButton().click()
     }
 }
 
