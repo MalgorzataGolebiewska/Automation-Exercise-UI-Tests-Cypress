@@ -1,28 +1,27 @@
-import homePage from "../pages/homePage";
 import cartPage from "../pages/cartPage";
+import homePage from "../pages/homePage";
 import loginPage from "../pages/loginPage";
 import newUserDataPage from "../pages/newUserDataPage";
 import createdAccountPage from "../pages/createdAccountPage";
 import loggedUserPage from "../pages/loggedUserPage";
 import paymentPage from "../pages/paymentPage";
+import deleteAccountPage from "../pages/deleteAccountPage";
 
-describe('Place Order: Register while Checkout', () => {
-    it('Should be possible to create new account from the cart', () => {
-        
+describe('Place Order: Register before Checkout', () => {
+    it('should be able to create a new account before placing order', () => {
+
         homePage.visitHomePage();
         homePage.elements.centerText().should('have.text', 'Features Items');
-        homePage.clickOnBlueTopCartButton();
-        homePage.clickOnContinueShopping();
-        homePage.clickOnCartButton();
-        cartPage.elements.shoppingCartBreadcrumbs().should('have.text', 'Shopping Cart');
-        cartPage.clickOnCheckoutButton();
-        cartPage.clickRegLogButton();
+        homePage.clickOnLoginButton();
         loginPage.createAccount();
         newUserDataPage.fillNewUserData();
         createdAccountPage.elements.accountMessage().should('have.text', 'Account Created!');
         createdAccountPage.clickContinue();
         loggedUserPage.elements.loggedUserName().should('have.text', ' Logged in as Tester');
-        loggedUserPage.clickCartButton();
+        homePage.clickOnBlueTopCartButton();
+        homePage.clickOnContinueShopping();
+        homePage.clickOnCartButton();
+        cartPage.elements.shoppingCartBreadcrumbs().should('have.text', 'Shopping Cart');
         cartPage.clickOnCheckoutButton();
         cartPage.checkDeliverAddress();
         cartPage.checkProductDetails();
@@ -32,5 +31,8 @@ describe('Place Order: Register while Checkout', () => {
         paymentPage.confirmAndPay();
         paymentPage.elements.orderMessage().should('have.text', 'Congratulations! Your order has been confirmed!');
         loggedUserPage.deleteAccount();
+        deleteAccountPage.elements.accountDeletedMessage().should('have.text', 'Account Deleted!');
+        deleteAccountPage.continueButton();
     })
+
 })

@@ -1,5 +1,3 @@
-import { should } from "chai"
-
 class cartPage {
 
     elements = {
