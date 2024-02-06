@@ -6,7 +6,7 @@ describe('Verify Product Quantity In Cart', () => {
     it('Should contain the changed quantity in the cart', () => {
         homePage.visitHomePage();
         homePage.elements.centerText().should('have.text', 'Features Items');
-        homePage.clickOnViewProduct();
+        homePage.viewBlueTopPage();
         viewProductPage.elements.productInformation().should('have.text', 'Blue Top');
         viewProductPage.changeQuantity();
         viewProductPage.addToCart();

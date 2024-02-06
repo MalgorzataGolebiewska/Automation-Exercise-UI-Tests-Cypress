@@ -25,6 +25,8 @@ class cartPage {
         totalPrice: () => cy.get('.cart_total > .cart_total_price'),
         commentAreaInput: () => cy.get('.form-control'),
         placeOrderButton: () => cy.get(':nth-child(7) > .btn'),
+        cartBlueTopDelete: () => cy.get('#product-1 > .cart_delete > .cart_quantity_delete'),
+        cartDescription:() => cy.get('h4 > a'),
     }
 
     subscriptionInput = "#susbscribe_email"
@@ -69,6 +71,10 @@ class cartPage {
 
     clickOnPlaceOrderButton() {
         this.elements.placeOrderButton().click()
+    }
+
+    deletBlueTopFromCart(){
+        this.elements.cartBlueTopDelete().click()
     }
 }
 

@@ -10,8 +10,9 @@ class homePage {
         subscriptionButton: () => cy.get('#subscribe'),
         subscriptionMessage: () => cy.get('#success-subscribe > div'),
         cartButton: () => cy.get('.shop-menu > .nav > :nth-child(3) > a'),
-        viewProductButton: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
+        viewBlueTopButton: () => cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a'),
         blueTopToCartButton: () => cy.get('.features_items > :nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn'),
+        winterTopToCartButton: () => cy.get(':nth-child(7) > .product-image-wrapper > .single-products > .productinfo > .btn'),
         continueShoppingButton: () => cy.get('.modal-footer > .btn'),
     }
 
@@ -60,17 +61,22 @@ class homePage {
         this.elements.cartButton().click()
     }
 
-    clickOnViewProduct(){
-        this.elements.viewProductButton().click()
+    viewBlueTopPage(){
+        this.elements.viewBlueTopButton().click()
     }
 
     clickOnBlueTopCartButton(){
         this.elements.blueTopToCartButton().click()
     }
 
+    clickOnWinterTopCartButton(){
+        this.elements.winterTopToCartButton().click()
+    }
+
     clickOnContinueShopping(){
         this.elements.continueShoppingButton().click()
     }
+
 }
 
 export default new homePage();
