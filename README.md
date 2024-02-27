@@ -1,1 +1,1 @@
-### Testy automatyczne testowe strony ecommerce [Automation Exercise](https://automationexercise.com/) w oparciu o przypadki testowe udostępnione na stronie [Automation Practice Website for UI Testing - Test Cases](https://automationexercise.com/test_cases)
+### Testy automatyczne testowej strony ecommerce [Automation Exercise](https://automationexercise.com/) w oparciu o przypadki testowe udostępnione na stronie [Automation Practice Website for UI Testing - Test Cases](https://automationexercise.com/test_cases)
